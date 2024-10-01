@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+class Base1 {
+public:
+    void method1() { cout << "Base1 method\n"; }
+};
+
+class Base2 {
+public:
+    void method2() { cout << "Base2 method\n"; }
+};
+
+class Intermediate : public Base1 {
+public:
+    void intermediateMethod() { cout << "Intermediate method\n"; }
+};
+
+class Derived : public Intermediate, public Base2 {
+public:
+    void accessMethods() {
+        method1(); // Accessible from Base1
+        method2(); // Accessible from Base2
+    }
+};
+
+int main() {
+    Derived d;
+    d.accessMethods();
+    return 0;
+}
