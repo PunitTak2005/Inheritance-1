@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void publicMethod() { cout << "Base public method\n"; }
+protected:
+    void protectedMethod() { cout << "Base protected method\n"; }
+private:
+    void privateMethod() { cout << "Base private method\n"; }
+};
+
+class Derived : public Base {
+public:
+    void accessMethods() {
+        publicMethod();    // Accessible
+        protectedMethod();  // Accessible
+        // privateMethod(); // Not accessible
+    }
+};
+
+int main() {
+    Derived d;
+    d.accessMethods();
+    return 0;
+}
